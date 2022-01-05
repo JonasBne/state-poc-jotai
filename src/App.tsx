@@ -12,6 +12,7 @@ function App() {
   const [page, setPage] = useState<string>('Planets');
 
   return (
+    <>
     <QueryClientProvider client={queryClient}>
     <div className="App">
       <h1>Star Wars Information</h1>
@@ -22,6 +23,7 @@ function App() {
       </div>
     </div>
     </QueryClientProvider>
+    </>
   );
 }
 
