@@ -1,28 +1,24 @@
-import { useQuery } from "react-query";
-import axios from "axios";
 import Character from "./Character";
+import {useGetCharacters} from "../api/hooks/useGetCharacters";
+import {useAtom} from "jotai";
+import {store} from "../state/store";
 
-function Characters() {
+export const Characters = () => {
+  const { searchQueryAtom } = store;
 
-  async function fetchCharacters() {
-    try {
-      const res = await axios.get('https://swapi.dev/api/people');
-      return res.data;
-    } catch (err: any) {
-      throw new Error(err);
-    }
-  }
+  // consumes the client state but is not responsible for keeping it up-to-date
+  const [ searchQuery ] = useAtom(searchQueryAtom);
 
-  const {data, status} = useQuery('planets', fetchCharacters);
+  const { data, status } = useGetCharacters(searchQuery);
+
+  console.log('data is', data)
 
   return (
     <div>
       <h2>Characters</h2>
       {status === 'loading' && <p>Loading...</p>}
       {status === 'error' && <p>Something went wrong while fetching the data...</p>}
-      {status === 'success' && data.results.map((character: any) => <Character key={character.url} name={character.name} height={character.height} mass={character.mass} />)}
+      {status === 'success' && data.map((character: any) => <Character key={character.url} name={character.name} height={character.height} mass={character.mass} />)}
     </div>
   )
 }
-
-export default Characters;

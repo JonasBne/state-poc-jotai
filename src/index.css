@@ -14,7 +14,7 @@ h1{
   font-size: 4em;
   letter-spacing: 2px;
 }
-button{
+button, input{
   margin: 0 10px;
   background: transparent;
   border: 3px solid #ccc;
@@ -24,7 +24,7 @@ button{
   font-size: 1.2em;
   cursor: pointer;
 }
-button:hover{
+button:hover, input:hover{
   color: #fff;
   border-color: #fff;;
 }

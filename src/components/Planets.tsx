@@ -1,35 +1,29 @@
-import { useQuery } from "react-query";
-import axios from "axios";
-import Planet from "./Planet";
-import { useState } from "react";
+import {Planet} from "./Planet";
+import {useGetPlanets} from "../api/hooks/useGetPlanets";
 
-
-function Planets() {
-  const [page, setPage] = useState<number>(1);
-
-  async function fetchPlanets(page: number) {
-    try {
-      const res = await axios.get(`https://swapi.dev/api/planets/?page=${page}`);
-      console.log(res.data)
-      return res.data;
-    } catch (err: any) {
-      throw new Error(err);
-    }
-  }
-
-  const {data, status} = useQuery(['planets', page], () => fetchPlanets(page), {keepPreviousData: true});
-
-  return (
-    <div>
-      <h2>Planets</h2>
-      {page > 1 && <button onClick={() => setPage(prevPage => prevPage - 1)}>Previous page</button>}
-      <button onClick={() => setPage(prevPage => prevPage + 1)}>Next page</button>
-
-      {status === 'loading' && <p>Loading...</p>}
-      {status === 'error' && <p>Something went wrong while fetching the data...</p>}
-      {status === 'success' && data.results.map((planet: any) => <Planet key={planet.url} name={planet.name} population={planet.population} terrain={planet.terrain} />)}
-    </div>
-  )
+interface PlanetsProps {
+    currentFetchedPage: number
+    onFetchNext: () => void;
+    onFetchPrevious: () => void;
 }
 
-export default Planets;
+export const Planets = ({ currentFetchedPage, onFetchNext, onFetchPrevious }: PlanetsProps) => {
+    const { data, status } = useGetPlanets(currentFetchedPage)
+
+    return (
+        <div>
+            <h2>Planets</h2>
+            {currentFetchedPage > 1 && <button onClick={onFetchPrevious}>Previous page</button>}
+            <button onClick={onFetchNext}>Next page</button>
+
+            {status === 'loading' && <p>Loading...</p>}
+            {status === 'error' && <p>Something went wrong while fetching the data...</p>}
+            {status === 'success' && data.map((planet: any) =>
+                <Planet key={planet.url}
+                        name={planet.name}
+                        population={planet.population}
+                        terrain={planet.terrain}/>
+            )}
+        </div>
+    );
+}

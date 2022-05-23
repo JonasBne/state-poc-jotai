@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# State Proof of Concept with React Query and Jotai
+
+The purpose of this PoC is to create a demo application that uses React Query to handle server side state and Jotai to handle client side state.
+Please note that I deliberately stored certain information in 'global state' for the sake of the example. The main idea of this application is that 
+React Query and Jotai can perfectly work together in a React application.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
