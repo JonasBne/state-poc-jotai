@@ -4,7 +4,24 @@ The purpose of this PoC is to create a demo application that uses React Query to
 Please note that I deliberately stored certain information in 'global state' for the sake of the example. The main idea of this application is that 
 React Query and Jotai can perfectly work together in a React application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Verdict
+
+### Pro
+
+- Easy to use
+- State is globally accessible without having to think about providers or consumers
+- Syntax is similar to React useState (which in turns makes is easier to use)
+- Documentation is clear
+- Adoption of Jotai is increasing
+- Jotai offers out of the box support for React Query (although in this demo I did not encounter a use case for it)
+
+### Cons
+- State is globally accessible (hence, state can be accessed an updated from any component)
+- It provides less structure than other libraries (e.g. Redux)
+
+In the end I would argue that the pros outweigh the cons. The combination between React Query and Jotai works great and is very easy to use.
+It also forces the developer to think critically about state in general and where it belongs (i.e. client or server side state, should it be made globally available or not).
+
 
 ## Available Scripts
 
