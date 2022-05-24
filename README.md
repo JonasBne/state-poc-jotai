@@ -10,7 +10,7 @@ React Query and Jotai can perfectly work together in a React application.
 
 - Easy to use
 - State is globally accessible without having to think about providers or consumers
-- Syntax is similar to React useState (which in turns makes is easier to use)
+- Syntax is similar to React useState (which in turns makes it easier to use)
 - Documentation is clear
 - Adoption of Jotai is increasing
 - Jotai offers out of the box support for React Query (although in this demo I did not encounter a use case for it)
