@@ -1,5 +1,5 @@
 import {Planet} from "./Planet";
-import {useGetPlanets} from "../api/hooks/useGetPlanets";
+import {useQueryPlanets} from "../api/hooks/useQueryPlanets";
 
 interface PlanetsProps {
     currentFetchedPage: number
@@ -8,7 +8,7 @@ interface PlanetsProps {
 }
 
 export const Planets = ({ currentFetchedPage, onFetchNext, onFetchPrevious }: PlanetsProps) => {
-    const { data, status } = useGetPlanets(currentFetchedPage)
+    const { data, status } = useQueryPlanets(currentFetchedPage)
 
     return (
         <div>

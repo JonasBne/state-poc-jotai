@@ -1,5 +1,5 @@
 import Character from "./Character";
-import {useGetCharacters} from "../api/hooks/useGetCharacters";
+import {useQueryCharacters} from "../api/hooks/useQueryCharacters";
 import {useAtom} from "jotai";
 import {store} from "../state/store";
 
@@ -9,7 +9,7 @@ export const Characters = () => {
   // consumes the client state but is not responsible for keeping it up-to-date
   const [ searchQuery ] = useAtom(searchQueryAtom);
 
-  const { data, status } = useGetCharacters(searchQuery);
+  const { data, status } = useQueryCharacters(searchQuery);
 
   console.log('data is', data)
 
