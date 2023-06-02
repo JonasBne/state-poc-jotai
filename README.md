@@ -4,6 +4,8 @@ The purpose of this PoC is to create a demo application that uses React Query to
 Please note that I deliberately stored certain information in 'global state' for the sake of the example. The main idea of this application is that 
 React Query and Jotai can perfectly work together in a React application.
 
+**Update 06/2023**: I've also added some basic Cypress setup to this proof of concept in order to familiarize myself with the basic concepts.
+
 ## Verdict
 
 ### Pro
@@ -21,7 +23,6 @@ React Query and Jotai can perfectly work together in a React application.
 
 In the end I would argue that the pros outweigh the cons. The combination between React Query and Jotai works great and is very easy to use.
 It also forces the developer to think critically about state in general and where it belongs (i.e. client or server side state, should it be made globally available or not).
-
 
 ## Available Scripts
 
