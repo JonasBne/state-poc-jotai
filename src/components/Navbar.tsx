@@ -16,10 +16,10 @@ export const Navbar = ({ onPageClick }: NavbarProps) => {
     }
 
     return (
-        <nav>
-            <button onClick={() => onPageClick('Planets')}>Planets</button>
-            <button onClick={() => onPageClick('Characters')}>Characters</button>
-            <input type="text" id="characterInput" onKeyUp={(ev) => handleSearchInput(ev)} placeholder="Enter character name" title="Type in a name"/>
+        <nav data-cy="nav">
+            <button data-cy="planets-btn" onClick={() => onPageClick('Planets')}>Planets</button>
+            <button data-cy="characters-btn" onClick={() => onPageClick('Characters')}>Characters</button>
+            <input data-cy="character-input" type="text" id="characterInput" onKeyUp={(ev) => handleSearchInput(ev)} placeholder="Enter character name" title="Type in a name"/>
         </nav>
     );
 }

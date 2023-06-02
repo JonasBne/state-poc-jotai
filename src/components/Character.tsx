@@ -1,14 +1,12 @@
-import React from "react";
-
-interface Character {
+interface CharacterProps {
   name: string,
   height: string,
   mass: string,
 }
 
-export default function Character({name, height, mass}: Character) {
+export const Character = ({name, height, mass}: CharacterProps) => {
   return (
-    <div className="card">
+    <div data-cy="character" className="card">
       <h3>{name}</h3>
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>

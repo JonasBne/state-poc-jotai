@@ -35,9 +35,9 @@ function App() {
     <>
     <QueryClientProvider client={queryClient}>
     <div className="App">
-      <h1>Star Wars Information</h1>
+      <h1 data-cy="app-heading">Star Wars Information</h1>
       <Navbar onPageClick={handleNavItemClick} />
-      <div className="content">
+      <div data-cy="content" className="content">
         {currentPage === 'Planets' && <Planets currentFetchedPage={currentFetchedPage} onFetchNext={handleFetchNextClick} onFetchPrevious={handleFetchPreviousClick} />}
         {currentPage === 'Characters' && <Characters />}
       </div>
